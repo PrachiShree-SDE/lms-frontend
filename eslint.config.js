@@ -25,6 +25,7 @@ export default defineConfig([
     plugins:['react-refresh','simple-import-sort'],
     rules: {
       'simple-import-sort/imports':'error',
+       "react/prop-types": "off",
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
