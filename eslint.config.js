@@ -22,7 +22,9 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
+    plugins:['react-refresh','simple-import-sort'],
     rules: {
+      'simple-import-sort/imports':'error',
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
