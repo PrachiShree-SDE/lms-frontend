@@ -4,6 +4,7 @@ import './App.css'
 import Footer from './components/footer'
 import Home from './pages/Home'
 import Aboutus from './pages/Aboutus'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
   return (
    <Routes>
       <Route path='/' element={<Home/>}/>
-       <Route path='/about' element={<Aboutus/>}/>
+      <Route path='/about' element={<Aboutus/>}/>
+      <Route path='*' element={<NotFound/>}/>
    </Routes>
   )
 }
