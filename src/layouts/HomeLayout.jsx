@@ -29,7 +29,7 @@ function HomeLayout({children}){
       function  onLogout(e) {
         e.preventDefault();
 
-        //todo
+        
         navigate("/");
 
       }
