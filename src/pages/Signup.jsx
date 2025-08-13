@@ -157,7 +157,7 @@ setPreviewImage("");
                         Create Account
                      </button>
                      <p>Alredy have an account ? 
-                        <Link to= '/login' className="cursor-pointer text-accent">Login</Link>
+                        <Link to= '/signin' className="cursor-pointer text-accent">Login</Link>
                      </p>
                      
                 </form>
