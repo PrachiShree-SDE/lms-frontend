@@ -1,7 +1,6 @@
 
 import { Route, Router, Routes } from 'react-router-dom'
 import './App.css'
-import Footer from './components/footer'
 import Home from './pages/Home'
 import Aboutus from './pages/Aboutus'
 import NotFound from './pages/NotFound'
@@ -27,13 +26,15 @@ function App() {
            <Route path='/courses' element={<CourseList/>}/>
           <Route path='/course/description' element={<CourseDescription/>}/>
 
-          <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
+          {/* <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
               <Route path= "/course/create" element={<CreateCourse/>}/>
-          </Route>
+          </Route> */}
 
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/denied' element={<Denied/>}/>
           <Route path='*' element={<NotFound/>}/>
+
+          <Route path= "/course/create" element={<CreateCourse/>}/>
     
       </Routes>
   )

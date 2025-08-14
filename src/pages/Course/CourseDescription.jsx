@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeLayout from "../../layouts/HomeLayout";
-import button from "daisyui/components/button";
+
 
 function CourseDescription () {
 
