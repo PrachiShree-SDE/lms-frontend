@@ -3,10 +3,13 @@ import toast from "react-hot-toast";
 import axiosinstance from "../../config/axiosinstance";
 
 
+
 const  initialState = {
     isLoggedIn: localStorage.getItem("isLoggedIn") || false,
     role: localStorage.getItem("role") || "",
-    data: JSON.parse(localStorage.getItem("data")) || {}
+    // data: JSON.parse(localStorage.getItem("data") || "{}" )
+     data:localStorage.getItem("data")  || {}
+
 }
 
 export const createAccount = createAsyncThunk("/auth/signup", async(data) => {
@@ -22,6 +25,34 @@ export const createAccount = createAsyncThunk("/auth/signup", async(data) => {
         return await response;
     }catch(error) {
         toast.error(error?.response?.data?.message)
+    }
+    
+} )
+
+export const updateProfile = createAsyncThunk("/auth/updateProfile", async(data) => {
+    try{
+        const response = axiosinstance.put(`/user/update/${data[0]}`,data[1])
+        toast.promise(response,{
+            loading: 'Wait updating your account ',
+            success: (data) => {
+                console.log(data);
+                return data?.data?.message;
+            },
+            error: 'Failed to update your account'
+        })
+        return (await response).data;
+    }catch(error) {
+        toast.error(error?.response?.data?.message)
+    }
+    
+} )
+
+export const getUserData = createAsyncThunk("/auth/getData", async() => {
+    try{
+        const response = axiosinstance.get("/user/me");
+        return (await response).data;
+    }catch(error) {
+        toast.error(error?.message);
     }
     
 } )
@@ -85,6 +116,16 @@ const authSlice = createSlice({
              state.role = "";
              state.data = {};
 
+        })
+        .addCase(getUserData.fulfilled, (state, action) => {
+             console.log(action?.payload)
+            if(!action?.payloa?.user) return;
+            localStorage.setItem("data", JSON.stringify(action?.payload?.user) );
+            localStorage.setItem("isLoggedIn", true );
+            localStorage.setItem("role", action?.payload?.user?.role);
+            state.isLoggedIn = true;
+            state.role = action?.payload?.user?.role;
+            state.data = action?.payload?.user;
         })
     }
 });
