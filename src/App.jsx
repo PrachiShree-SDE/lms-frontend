@@ -28,10 +28,10 @@ function App() {
            <Route path='/courses' element={<CourseList/>}/>
           <Route path='/course/description' element={<CourseDescription/>}/>
 
-           {/* <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]}/>}>
+           <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]}/>}>
               <Route path= "/user/profile" element={<Profile/>}/>
               <Route path= "/user/editprofile" element={<EditProfile/>}/>
-          </Route> */}
+          </Route>
 
           <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
               <Route path= "/course/create" element={<CreateCourse/>}/>
@@ -42,8 +42,7 @@ function App() {
           <Route path='*' element={<NotFound/>}/>
 
              
-              <Route path= "/user/profile" element={<Profile/>}/>
-              <Route path= "/user/editprofile" element={<EditProfile/>}/>
+             
     
       </Routes>
   )
