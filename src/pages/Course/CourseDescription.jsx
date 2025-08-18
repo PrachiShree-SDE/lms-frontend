@@ -28,7 +28,7 @@ function CourseDescription () {
                                     <span className="font-bold text-yellow-500">Instructor: {" "}</span> {state?.createdBy}
                                 </p>
                             </div>
-
+                          
                             {role == "ADMIN" || data?.subscription?.status === 'active'?(
                                 <button
                                     onClick={() => navigate("/course/displaylectures",{state: {...state}})}
