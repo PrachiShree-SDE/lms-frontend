@@ -17,6 +17,7 @@ import EditProfile from './pages/User/EditProfile'
 import Checkout from './pages/Payment/Checkout'
 import CheckoutSuccess from './pages/Payment/CheckoutSuccess'
 import CheckoutFailure from './pages/Payment/CheckoutFailure'
+import DisplayLectures from './pages/Dashboard/DisplayLectures'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
               <Route path='/checkout' element={<Checkout/>} />
                <Route path='/checkout/success' element={<CheckoutSuccess/>} />
                <Route path='/checkout/fail' element={<CheckoutFailure/>} />
+                <Route path='/course/displaylectures' element={<DisplayLectures/>} />
           </Route>
 
           <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
@@ -49,9 +51,7 @@ function App() {
 
           
 
-            {/* <Route path='/checkout' element={<Checkout/>} />
-             <Route path='/checkout/success' element={<CheckoutSuccess/>} />
-              <Route path='/checkout/fail' element={<CheckoutFailure/>} /> */}
+           
     
       </Routes>
   )
